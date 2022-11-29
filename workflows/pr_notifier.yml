@@ -1,0 +1,15 @@
+on: 
+  pull_request:
+    
+jobs:
+  send_notification:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo 'hola'
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install --legacy-peer-deps
+      - run: npm test
